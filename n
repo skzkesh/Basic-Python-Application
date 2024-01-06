@@ -1,0 +1,23 @@
+def bisection(f, a, b, *, n=10):
+    """
+
+    Parameters:
+        f: function
+            The function whose root is to be found.
+        a, b: float
+            The endpoints of the initial interval [a, b].
+        n: int, optional
+            The maximum number of bisections to perform. Defaults to 10.
+
+    Returns:
+        list
+            The interval [xstart, xstop] containing the root of f(x), or 
+            an empty list if f(a) and f(b) have the same sign.
+    """    
+    if f(a) * f(b) > 0:
+        return []  # because f(x) may not have a root between x=a and x=b
+    elif n <= 0:  # base case when recursion cannot go any deeper
+        return [a, b] if a <= b else [b, a]
+    else:
+        c = (a + b) / 2  # bisect the interval between a and b
+        return bisection(f, a, c, n=n - 1) or bisection(f, c, b, n=n - 1)  # recursion
