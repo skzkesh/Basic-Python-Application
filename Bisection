@@ -1,8 +1,6 @@
 import numpy as np
 def bisection(f, a, b, *, tol=1e-9, n=None):
     """
-    Find the root of the function f(x) within the interval [a, b] using the bisection method.
-
     Parameters:
         f: function
             The function whose root is to be found.
