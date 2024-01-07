@@ -1,0 +1,18 @@
+def conditionally_distribute(seq1, seq2): #generate a nested dictionary
+    """Returns the conditional distribution q of seq2 given seq1 such that
+    q[i] is a dictionary for observed outcome i in seq1 and
+    q[i][j] is the probability of observing j in seq2 given the
+    corresponding outcome in seq1 is i."""
+    q, count = {}, {}  # NOT q = count = {}
+    for i in seq1:
+        count[i] = count.get(i, 0) + 1
+    for i, j in zip(seq1, seq2):
+        if i in q:
+            if j in q[i]:
+                q[i][j] += 1 / count[i]
+            else:
+                q[i][j] = 1 / count[i]
+        else:
+            q[i] = {}
+            q[i][j] = 1 / count[i]
+    return q
