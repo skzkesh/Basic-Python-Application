@@ -1,0 +1,2 @@
+def entropy(dist):
+    return sum(value * math.log2(1 / value) for value in dist.values() if value != 0)
