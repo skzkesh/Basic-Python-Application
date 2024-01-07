@@ -1,0 +1,8 @@
+def uniform(outcomes):
+    """Returns the uniform distribution (dict) over distinct items in outcomes."""
+    keys = list(set(outcomes))
+    values = (1/len(keys))
+    uniformDist = {}
+    for key in(keys):
+        uniformDist[key] = values
+    return uniformDist
