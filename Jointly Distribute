@@ -1,0 +1,13 @@
+def jointly_distribute(seq1, seq2):
+    """Returns the joint distribution of the tuple (i,j) of outcomes from zip(seq1,seq2)."""
+    list_seq1 = list(seq1)
+    list_seq2 = list(seq2)
+    values = 1/(len(list_seq1))
+    zipped = list(zip(list_seq1, list_seq2))
+    joinDist = {}
+    for i in zipped:
+        if i in joinDist:
+            joinDist[i] += (1/len(zipped))
+        else:
+            joinDist[i] = (1/len(zipped))
+    return joinDist
