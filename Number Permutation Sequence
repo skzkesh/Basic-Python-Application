@@ -1,0 +1,9 @@
+# yield a permutation sequence of n long
+def num_permutation_sequence(n):
+    output = 1
+    for k in range(0, n + 1):
+        yield output
+        result = 1
+        for i in range(0, k + 1):
+            result *= (n - i)
+            output = result
