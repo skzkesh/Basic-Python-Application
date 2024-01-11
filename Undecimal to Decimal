@@ -1,0 +1,15 @@
+# undecimal_str is valid undecimal string consisting of characters from "0123456789X"
+def undecimal_to_decimal(undecimal_str): 
+    k = len(undecimal_str)
+    decimal = 0
+    #access every char in str
+    for i in range(k):
+        num = undecimal_str[i]
+        #if number 1 - 9
+        if num in "0123456789":
+            convert = eval(num)
+            if convert <= 9:
+                decimal = decimal + convert * (11 ** ((k-1)- i))
+        else:
+            decimal = decimal + 10 * (11 ** ((k-1)- i))
+    return decimal
