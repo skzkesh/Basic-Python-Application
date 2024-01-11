@@ -1,0 +1,8 @@
+def count_characters(string):
+    counts = {}
+    for i in string:
+        if i in counts:
+            counts[i] += 1
+        else:
+            counts[i] = 1
+    return counts
