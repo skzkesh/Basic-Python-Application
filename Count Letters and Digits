@@ -1,0 +1,13 @@
+def count_letters_and_digits(string):
+    # YOUR CODE HERE
+    default_value = 0
+    keys = ["DIGITS", "LETTERS"]
+    dictionary = dict.fromkeys(keys, default_value)
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for i in string:
+        if i.isalnum():
+            if i in "1234567890":
+                dictionary["DIGITS"] += 1
+            elif i in letters or letters.lower():
+                dictionary["LETTERS"] += 1
+    return dictionary
