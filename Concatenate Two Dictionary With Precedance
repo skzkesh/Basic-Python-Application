@@ -1,0 +1,10 @@
+# return a new dictionary containing all the items in a, and the items in b that have different keys than those in a.
+def concat_two_dicts(a, b):
+    dict_a = {**a}
+    for key, value in b.items():
+        if key not in dict_a:
+            dict_a[key] = value
+    return dict_a
+
+def concat_two_dicts2(a, b):
+  return {**b, **a}
