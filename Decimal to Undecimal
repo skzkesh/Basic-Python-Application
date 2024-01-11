@@ -1,0 +1,13 @@
+def decimal_to_undecimal(decimal):
+    if decimal == 0:
+        return "0"
+    undecimal = [ ]
+    while decimal > 0:
+        remainder = str(decimal % 11)
+        if remainder == "10":
+            remainder = "X"
+        undecimal.append(remainder)
+        decimal = decimal // 11
+    undecimal.reverse()
+    undecimal_str = "".join(undecimal)
+    return undecimal_str
