@@ -1,0 +1,24 @@
+def num_permutation(n, k=None):
+    """Compute the number of k-permutations of n items.
+
+    Parameters
+    ----------
+    n: int
+        Number of items to permute.
+    k: int
+        Optional argument indicating the size of each permutation.
+        Default: n
+
+    Returns
+    -------
+    int:
+        Number of k-permutations of n items.
+    """
+    if k is None:
+        k = n
+    if 1 < k <= n:
+        return n * num_permutation(n-1, k = k -1)
+    elif k == 1:
+        return n
+    else:
+        return 1
