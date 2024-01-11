@@ -1,0 +1,15 @@
+def get_roots(a, b, c):
+    d = b**2 - 4 * a * c
+    # YOUR CODE HERE
+    if math.isclose(a, 0):
+        if math.isclose(b, 0):
+            if math.isclose(c, 0):
+                roots = -float('inf'), float('inf')
+            else:
+                roots = None
+        else:
+            roots = - c / b
+    else:
+        d **= 0.5
+        roots = (-b - d) / (2 * a), (-b + d) / (2 * a)
+    return roots
