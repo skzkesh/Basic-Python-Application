@@ -1,0 +1,43 @@
+def argsort(seq):
+    '''A helper function that returns the tuple of indices that would sort the
+    sequence seq.'''
+    return tuple(x[0] for x in sorted(enumerate(seq), key=lambda x: x[1]))
+
+
+def ct_idx(length, key):
+    '''A helper function that returns the tuple of indices that would permute 
+    the letters of a message according to the key using the irregular case of 
+    columnar transposition cipher.'''
+    seq = tuple(range(length))
+    return [i for j in argsort(key) for i in seq if i % len(key) == j]
+
+
+def ct_encrypt(plaintext, key):
+    '''
+    Return the ciphertext of a plaintext by the key using the irregular case
+    of columnar transposition cipher.
+
+    Parameters
+    ----------
+    plaintext: str
+        a message in uppercase without punctuations/spaces.
+    key: str
+        secret key to encrypt plaintext.
+    '''
+    return ''.join([plaintext[i] for i in ct_idx(len(plaintext), key)])
+
+def ct_decrypt(ciphertext, key):
+    '''
+    Return the plaintext of the ciphertext by the key using the irregular case
+    of columnar transposition cipher.
+
+    Parameters
+    ----------
+    ciphertext: str
+        a string in uppercase without punctuations/spaces.
+    key: str
+        secret key to decrypt ciphertext.
+    '''
+    index = ct_idx(len(ciphertext), key)
+    index_order = sorted(range(len(index)), key=lambda x:index[x])
+    return ''.join([ciphertext[j] for j in index_order])
