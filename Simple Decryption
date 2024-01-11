@@ -1,0 +1,13 @@
+cc_n = 1114112
+def cc_decrypt(ciphertext, key):
+    """
+    Return the plaintext that encrypts to ciphertext by the key using Caesar cipher.
+
+    Parameters
+    ----------
+    ciphertext: str
+        message to be decrypted.
+    key: int
+        secret key to decrypt the ciphertext.
+    """
+    return "".join([chr((ord(char) - key) % cc_n) for char in ciphertext])
