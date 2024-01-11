@@ -1,0 +1,6 @@
+def add_binary(*binaries):
+    result = 0
+    for binary in binaries:
+        res = int(binary, 2)
+        result += res
+    return bin(result)[2:]
