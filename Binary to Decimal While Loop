@@ -1,0 +1,15 @@
+def binary_to_decimal(binary_str):
+    k = len(binary_str)
+    decimal = 0
+    i = 0
+    while i < k:
+        num = binary_str[i]
+        if num == "1":
+            decimal = decimal + (2**((k-1)-i)) 
+        elif num == "0":
+            decimal = decimal 
+        else:
+            return None
+        i += 1
+
+    return decimal
