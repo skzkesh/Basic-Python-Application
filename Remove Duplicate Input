@@ -1,0 +1,11 @@
+def deduplicate_input(f):
+    """Takes in a function f that takes a variable number of arguments
+    possibly with duplicates, returns a decorator that removes duplicates
+    in the positional argument."""
+
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        filter = set(args)
+        final = f(*filter, **kwargs)
+        return final
+    return wrapper
