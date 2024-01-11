@@ -1,0 +1,14 @@
+def num_permutation_sequence(n):
+    output = 1
+    k = 0
+    while k <= n:
+        sent_value = yield output
+        if sent_value == 0:
+            n += 1
+        else: 
+            k += 1
+        
+        result = 1
+        for i in range(0, k):
+            result *= (n - i)
+            output = result
