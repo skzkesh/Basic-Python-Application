@@ -1,0 +1,12 @@
+def cc_encrypt(plaintext, key):
+    """
+    Return the ciphertext of a plaintext by the key using the Caesar cipher.
+
+    Parameters
+    ----------
+    plaintext: str
+        A unicode (UTF-8) message to be encrypted.
+    public_key: int
+        Public key to encrypt plaintext.
+    """
+    return "".join([chr((ord(char) + key) % cc_n) for char in plaintext])
